@@ -52,8 +52,7 @@
 
 <div class="summary-box">
     <h3 style="border:none; padding:0; color:#2c3e50;">📌 핵심 발견 (Executive Summary)</h3>
-    <p><strong>핵심 메시지:</strong> <span style="color: #e74c3c; font-weight: bold;">"시간이 충분해도 행복하지 않다"</span> - 여가 시간의 풍부함만으로는 행복이 보장되지 않으며, 건강, 경제적 여유, 긍정적 인식이 종합적으로 갖춰져야 행복한 여가가 가능함</p>
-    <p><strong>주요 결과:</strong> 5개 여가 프로파일 도출 (Entropy=0.676) | 행복 최고(Class 1: 7.67) vs 최저(Class 4: 4.31) = <strong>3.36점 차이</strong> | Class 4는 휴일시간 70.6%(1위)이나 행복 최저</p>
+    <p>본 연구는 랜덤포레스트로 예측 중요도를 탐색 후, 잠재계층분석을 위한 범주형 변수를 추려 잠재계층 분석 지표 변수들을 선정하였습니다.</p>
 </div>
 
 <hr>
@@ -177,7 +176,7 @@
         <tr><td>6</td><td>Q16_3</td><td>여가활동 유형</td><td>0.0106</td><td><span class="tag tag-blue">Q변수</span></td><td>-</td></tr>
         <tr><td>7</td><td>Q4_1</td><td>여가활동 빈도</td><td>0.0103</td><td><span class="tag tag-blue">Q변수</span></td><td>-</td></tr>
         <tr><td>...</td><td colspan="5" style="color:#999;">... (8~13위 모두 Q변수) ...</td></tr>
-        <tr class="selected-row"><td>14</td><td>Q9_N</td><td>여가시간 관련</td><td>0.0091</td><td><span class="tag tag-blue">Q변수</span></td><td>관련</td></tr>
+        <tr><td>14</td><td>Q9_N</td><td>지난 1년간 여가활동을 위한 지출액(월 평균)</td><td>0.0091</td><td><span class="tag tag-blue">Q변수</span></td><td>-</td></tr>
         <tr style="background:#fff3cd;"><td>15</td><td>DM11</td><td>직업</td><td>0.0090</td><td><span class="tag tag-red">DM변수</span></td><td>-</td></tr>
         <tr style="background:#fff3cd;"><td>16</td><td>DM8</td><td>가구소득</td><td>0.0090</td><td><span class="tag tag-red">DM변수</span></td><td>-</td></tr>
     </tbody>
@@ -242,16 +241,16 @@
 <h3>📋 Table B-1. Gini Importance 분석 결과 (여가만족 예측)</h3>
 
 <table>
-    <thead><tr><th>순위</th><th>변수</th><th>레이블</th><th>Gini Importance</th><th>유형</th><th>LCA 선정</th></tr></thead>
+    <thead><tr><th>순위</th><th>변수</th><th>레이블</th><th>Gini Importance</th><th>유형</th><th>LCA 선정 여부 및 사유</th></tr></thead>
     <tbody>
-        <tr><td>1</td><td>Q29_1</td><td>여가만족 세부</td><td class="high-value">0.1093</td><td><span class="tag tag-blue">Q변수</span></td><td>-</td></tr>
-        <tr class="selected-row"><td>2</td><td>Q27</td><td>일여가균형</td><td class="high-value">0.0284</td><td><span class="tag tag-blue">Q변수</span></td><td>✓</td></tr>
-        <tr class="selected-row"><td>3</td><td>Q13_2_2</td><td>휴일 여가시간</td><td class="high-value">0.0217</td><td><span class="tag tag-blue">Q변수</span></td><td>✓</td></tr>
-        <tr><td>4</td><td>Q30</td><td>여가활동 동반자</td><td>0.0206</td><td><span class="tag tag-blue">Q변수</span></td><td>-</td></tr>
-        <tr class="selected-row"><td>5</td><td>Q31</td><td>여가긍정인식</td><td class="high-value">0.0186</td><td><span class="tag tag-blue">Q변수</span></td><td>✓</td></tr>
-        <tr class="selected-row"><td>6</td><td>Q9_1</td><td>여가비충분도</td><td class="high-value">0.0184</td><td><span class="tag tag-blue">Q변수</span></td><td>✓</td></tr>
-        <tr><td>7</td><td>Q13_2_1</td><td>평일 여가시간</td><td>0.0182</td><td><span class="tag tag-blue">Q변수</span></td><td>-</td></tr>
-        <tr class="selected-row"><td>8</td><td>Q33</td><td>건강상태</td><td>0.0120</td><td><span class="tag tag-blue">Q변수</span></td><td>✓</td></tr>
+        <tr><td>1</td><td>Q29_1</td><td>여가만족 세부</td><td class="high-value">0.1093</td><td><span class="tag tag-blue">Q변수</span></td><td><span style="color:red">제외</span>. 사유: "사후적 변수이므로 순환 논리(Circular Logic) 방지"</td></tr>
+        <tr class="selected-row"><td>2</td><td>Q27</td><td>일여가균형</td><td class="high-value">0.0284</td><td><span class="tag tag-blue">Q변수</span></td><td><span style="color:green">선정</span>. 사유: "시간의 질적 측면 측정"</td></tr>
+        <tr class="selected-row"><td>3</td><td>Q13_2_2</td><td>휴일 여가시간</td><td class="high-value">0.0217</td><td><span class="tag tag-blue">Q변수</span></td><td><span style="color:green">선정</span>. 사유: "객관적 시간 자원(양) 측정"</td></tr>
+        <tr><td>4</td><td>Q30</td><td>여가활동 동반자</td><td>0.0206</td><td><span class="tag tag-blue">Q변수</span></td><td><span style="color:purple">제외</span>. 사유: "범주 복잡성으로 인해 프로파일링용으로 전환"</td></tr>
+        <tr class="selected-row"><td>5</td><td>Q31</td><td>여가긍정인식</td><td class="high-value">0.0186</td><td><span class="tag tag-blue">Q변수</span></td><td><span style="color:green">선정</span>. 사유: "여가에 대한 주관적 인식 측정"</td></tr>
+        <tr class="selected-row"><td>6</td><td>Q9_1</td><td>여가비충분도</td><td class="high-value">0.0184</td><td><span class="tag tag-blue">Q변수</span></td><td><span style="color:green">선정</span>. 사유: "주관적 비용 인식"</td></tr>
+        <tr><td>7</td><td>Q13_2_1</td><td>평일 여가시간</td><td>0.0182</td><td><span class="tag tag-blue">Q변수</span></td><td><span style="color:purple">제외</span>. 사유: "변별력 부족, 휴일시간(Q13_2_2)으로 대표"</td></tr>
+        <tr class="selected-row"><td>8</td><td>Q33</td><td>건강상태</td><td>0.0120</td><td><span class="tag tag-blue">Q변수</span></td><td><span style="color:green">선정</span>. 사유: "여가 참여의 기반 자원"</td></tr>
         <tr><td>...</td><td colspan="5" style="color:#999;">...</td></tr>
         <tr style="background:#fff3cd;"><td>24</td><td>DM11</td><td>직업</td><td>0.0072</td><td><span class="tag tag-red">DM변수</span></td><td>-</td></tr>
     </tbody>
@@ -285,23 +284,12 @@
 
 <!-- ==================== 다중공선성 진단 ==================== -->
 
-<h2>🔍 다중공선성 진단 및 변수 제거</h2>
+<h2>🔍 데이터 품질 관리(다중공선성)</h2>
 
-<p>여가 변수들 간 높은 상관관계(r ≥ 0.80)를 보이는 변수 쌍을 식별하고, Gini Importance가 낮은 변수를 분석에서 제외하여 중요도 추정의 왜곡을 방지하였다.</p>
-
-<table>
-    <thead><tr><th>변수 쌍</th><th>상관계수 (r)</th><th>제거 변수</th><th>근거 (Gini 순위)</th></tr></thead>
-    <tbody>
-        <tr><td>Q9_N ↔ Q10_N</td><td class="low-value">0.863</td><td>Q10_N</td><td>28위 제거 (Q9_N: 14위 유지)</td></tr>
-        <tr><td>Q13_1_2_N ↔ Q13_4_2_N</td><td class="low-value">0.832</td><td>Q13_4_2_N</td><td>27위 제거 (Q13_1_2_N: 25위 유지)</td></tr>
-        <tr><td>Q23_1_N ↔ Q23_2_N</td><td class="low-value">0.874</td><td>Q23_1_N</td><td>63위 제거 (Q23_2_N: 36위 유지)</td></tr>
-        <tr><td>Q35 ↔ Q44</td><td class="low-value">0.884</td><td>Q44</td><td>214위 제거 (Q35: 47위 유지)</td></tr>
-        <tr><td>Q39 ↔ Q42_1</td><td class="low-value">0.859</td><td>Q42_1</td><td>211위 제거 (Q39: 40위 유지)</td></tr>
-        <tr><td>Q44_2 ↔ Q42_1</td><td class="low-value">0.899</td><td>-</td><td>Q42_1 이미 제거됨</td></tr>
-    </tbody>
-</table>
-
-<div class="note"><small>출처: multicollinearity_diagnosis.csv, multicollinearity_removed_vars.csv</small></div>
+<div class="finding-box">
+    <h4>📊 다중공선성 정제(Pruning)</h4>
+    <p>상관계수 0.8 이상인 중복 변수들을 식별하여, 예측 기여도(Gini)가 낮은 변수를 사전에 정제(Pruning)했다.</p>
+</div>
 
 <hr>
 
